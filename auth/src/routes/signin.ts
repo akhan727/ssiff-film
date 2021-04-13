@@ -1,7 +1,11 @@
 import express, { Request, Response } from 'express';
-import { body, validationResult } from 'express-validator';
+import { body } from 'express-validator';
+import jwt from 'jsonwebtoken';
 
-import { RequestValidationError } from '../errors/request-validation-error';
+import { PasswordUtils } from '../utils/password.utils';
+import { User } from '../models/user.model';
+import { validateRequest } from '../middlewares/validate-request';
+import { BadRequestError } from '../errors/bad-request-error';
 
 const router = express.Router();
 
@@ -15,12 +19,42 @@ router.post('/api/users/signin',
       .notEmpty()
       .withMessage('You must supply a password!')
   ], 
-  (req: Request, res: Response) => {
-    const errors = validationResult(req);
+  validateRequest,
+  async (req: Request, res: Response) => {
+    
+    // Extract user input from request
+    const { email, password } = req.body;
 
-    if (!errors.isEmpty()) {
-      throw new RequestValidationError(errors.array());
+    // Find out if user input email exists, throw error if it doesn't
+    const existingUser = await User.findOne({ email });
+    if (!existingUser) {
+      throw new BadRequestError('Invalid email or password!');
     }
+
+    // Find out if user input password is correct, throw error is its not
+    const passwordMatch = await PasswordUtils.compare(
+      existingUser.password,
+      password
+    );
+    if (!passwordMatch) {
+      throw new BadRequestError("Invalid email or password!");
+    }
+
+    // Generate JWT
+    const userJWT = jwt.sign(
+      {
+        id: existingUser.id,
+        email: existingUser.email
+      }, 
+      process.env.JWT_KEY!
+    );
+
+    // Store it on the session object
+    req.session = {
+      jwt: userJWT
+    };
+
+    res.status(200).send(existingUser);
   }
 );
 
