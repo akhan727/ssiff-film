@@ -23,9 +23,6 @@ router.get('/api/users/currentuser', (req: Request, res: Response) => {
     // This try-catch-block will be used to catch that possible error
     res.send({ currentUser: null });
   }
-
-  // 
-
 });
 
 export { router as currentUserRouter };
