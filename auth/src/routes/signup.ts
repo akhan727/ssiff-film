@@ -1,5 +1,6 @@
 import express, { Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
+import jwt from 'jsonwebtoken';
 
 import { User } from '../models/user.model';
 import { RequestValidationError } from '../errors/request-validation-error';
@@ -20,22 +21,38 @@ router.post(
   ],
   async (req: Request, res: Response) => {
     
+    // Validates format of user input (email and password)
     const errors = validationResult(req);
-
     if (!errors.isEmpty()) {
       throw new RequestValidationError(errors.array());
     }
     
+    // Find if user email exists
     const { email, password } = req.body;
-    
     const existingUser = await User.findOne({ email });
     
+    // Throws error is email entered already exists
     if ( existingUser ) {
       throw new BadRequestError('Email already exists!');
     }
 
+    // Create and save new user to database
     const user = User.build({ email, password });
     await user.save();
+
+    // Generate JWT
+    const userJWT = jwt.sign(
+      {
+        id: user.id,
+        email: user.email
+      }, 
+      process.env.JWT_KEY!
+    );
+
+    // Store it on the session object
+    req.session = {
+      jwt: userJWT
+    };
 
     res.status(201).send(user);
   }
