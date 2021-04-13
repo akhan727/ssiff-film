@@ -31,7 +31,7 @@ router.post('/api/users/signin',
       throw new BadRequestError('Invalid email or password!');
     }
 
-    // Find out if user input password is correct, throw error is its not
+    // Find out if user input password is correct, throw error if its not
     const passwordMatch = await PasswordUtils.compare(
       existingUser.password,
       password
