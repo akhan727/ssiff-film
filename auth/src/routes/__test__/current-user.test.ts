@@ -1,24 +1,27 @@
 import request from 'supertest';
 import { app } from '../../app';
 
-it('responds with details about the current user', async () => {
-  const cookie = await global.signin();
+describe('/api/users/currentuser', () => {
+  const endpoint = '/api/users/currentuser';
 
-  const response = await request(app)
-    .get('/api/users/currentuser')
-    .set('Cookie', cookie)
-    .send()
-    .expect(200);
+  it('responds with details about the current user', async () => {
+    const user = { email: 'test@test.com', password: 'password' };
 
-  // console.log(response.body);
-  expect(response.body.currentUser.email).toEqual('test@test.com');
-});
+    const cookie = await global.getAuthCookie(user.email, user.password);
 
-it('responds with null if not authenticated', async () => {
-  const response = await request(app)
-    .get('/api/users/currentuser')
-    .send()
-    .expect(200);
+    const { body } = await request(app)
+      .get(endpoint)
+      .set('Cookie', cookie)
+      .send()
+      .expect(200);
 
-  expect(response.body.currentUser).toEqual(null);
+    expect(body.currentUser).not.toBeNull();
+    expect(body.currentUser.email).toEqual(user.email);
+  });
+
+  it('responds with null if not authenticated', async () => {
+    const { body } = await request(app).get(endpoint).send().expect(200);
+
+    expect(body.currentUser).toBeNull();
+  });
 });

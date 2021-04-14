@@ -7,7 +7,7 @@ import { app } from '../app';
 declare global {
   namespace NodeJS {
     interface Global {
-      signin(): Promise<string[]>;
+      getAuthCookie(email: string, password: string): Promise<string[]>;
     }
   }
 }
@@ -31,9 +31,7 @@ beforeAll(async () => {
 beforeEach(async () => {
   // Resets data inbetween tests
   const collections = await mongoose.connection.db.collections();
-  for (let collection of collections) {
-    await collection.deleteMany({});
-  }
+  collections.forEach((collection) => collection.deleteMany({}));
 });
 
 afterAll(async () => {
@@ -42,16 +40,10 @@ afterAll(async () => {
   await mongoose.connection.close();
 });
 
-global.signin = async () => {
-  const email = 'test@test.com';
-  const password = 'password';
-
+global.getAuthCookie = async (email: string, password: string) => {
   const response = await request(app)
     .post('/api/users/signup')
-    .send({
-      email,
-      password,
-    })
+    .send({ email, password })
     .expect(201);
 
   const cookie = response.get('Set-Cookie');
