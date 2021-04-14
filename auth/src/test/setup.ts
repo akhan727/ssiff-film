@@ -6,9 +6,11 @@ let mongo: any;
 
 // Hook function to run before all tests
 beforeAll(async () => {
-  // Instantiate memory server and get url to connect to in-memory server
-  mongo = new MongoMemoryServer();
-  const mongoUri = await mongo.getUri();
+  process.env.JWT_KEY = 'ssiff-secret-key'; // set env variable
+  
+  mongo = new MongoMemoryServer(); // create server
+  const mongoUri = await mongo.getUri(); // connect to server
+  
   // Get mongoose to connect to in-memory server
   await mongoose.connect(mongoUri, {
     useNewUrlParser: true,
