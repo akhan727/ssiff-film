@@ -1,35 +1,60 @@
 import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
+import request from 'supertest';
 import { app } from '../app';
 
-let mongo: any;
+// signin function returns a promise that resolves with a cookie (array of strings)
+declare global {
+  namespace NodeJS {
+    interface Global {
+      signin(): Promise<string[]>;
+    }
+  }
+}
 
-// Hook function to run before all tests
+let mongo: any;
 beforeAll(async () => {
-  process.env.JWT_KEY = 'ssiff-secret-key'; // set env variable
-  
-  mongo = new MongoMemoryServer(); // create server
-  const mongoUri = await mongo.getUri(); // connect to server
-  
-  // Get mongoose to connect to in-memory server
+  // set env variable
+  process.env.JWT_KEY = 'test-key';
+
+  // create server and connect
+  mongo = new MongoMemoryServer();
+  const mongoUri = await mongo.getUri();
+
+  // connect mongoose to server
   await mongoose.connect(mongoUri, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
   });
 });
 
-// Hook function to run before each test
 beforeEach(async () => {
-  // Resets data inbetween tests 
+  // Resets data inbetween tests
   const collections = await mongoose.connection.db.collections();
   for (let collection of collections) {
     await collection.deleteMany({});
   }
 });
 
-// Hook function to run after all tests are complete
 afterAll(async () => {
-  // Stops server and disconnects from mongoose
+  // stop server, disconnect mongoose from server
   await mongo.stop();
   await mongoose.connection.close();
 });
+
+global.signin = async () => {
+  const email = 'test@test.com';
+  const password = 'password';
+
+  const response = await request(app)
+    .post('/api/users/signup')
+    .send({
+      email,
+      password,
+    })
+    .expect(201);
+
+  const cookie = response.get('Set-Cookie');
+
+  return cookie;
+};
