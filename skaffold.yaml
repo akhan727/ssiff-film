@@ -1,5 +1,9 @@
 apiVersion: skaffold/v2beta13
 kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
 build:
   local:
     push: false
@@ -12,7 +16,13 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
-deploy:
-  kubectl:
-    manifests:
-      - ./infra/k8s/*
+    - image: akhan727/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'pages/**/*.tsx'
+            dest: .
+          - src: 'src/**/*.tsx'
+            dest: .
