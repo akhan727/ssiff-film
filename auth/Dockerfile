@@ -10,7 +10,7 @@ WORKDIR /app
 # Copies package.json files so Docker can install dependencies
 COPY package.json .
 # Install dependencies
-RUN npm install
+RUN npm install --only=prod
 # Copy files to container
 COPY . .
 
