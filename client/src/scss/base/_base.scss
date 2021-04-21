@@ -3,13 +3,17 @@
 *,
 *::after,
 *::before {
+  box-sizing: inherit;
   margin: 0;
   padding: 0;
-  box-sizing: inherit;
 }
 
 html body {
   background-color: $color-black;
+}
+
+body {
+  font-family: $font-primary;
 }
 
 ::selection {

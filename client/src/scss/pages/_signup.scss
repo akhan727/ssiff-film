@@ -1,6 +1,6 @@
 @use '../abstracts' as *;
 
 .signup-header {
-  font-family: 'a Alloy Ink';
+  font-family: $font-secondary;
   color: $color-primary;
 }

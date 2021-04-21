@@ -1,1 +1,5 @@
+@use '../abstracts' as *;
 
+.header-style {
+  background-color: $color-gray-dark;
+}

@@ -1,7 +1,7 @@
 export default () => {
   return (
     <>
-      <h1 className="signup-header">Sign Up!!!</h1>
+      <h1 className="signup-header">Sign Up</h1>
     </>
   );
 };
