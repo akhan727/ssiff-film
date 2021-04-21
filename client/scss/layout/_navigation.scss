@@ -1,0 +1,86 @@
+@use '../abstracts' as *;
+
+.navigation {
+  &__drop__title {
+    font-family: $font-primary;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    text-transform: uppercase;
+    &:hover {
+      background-color: $color-primary;
+    }
+    a {
+      &:focus {
+        background-color: $color-primary;
+      }
+    }
+  }
+
+  &__user__button {
+    border: 2px solid $color-black;
+    font-family: $font-primary;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    padding: 0.1rem;
+    text-transform: uppercase;
+    &:hover,
+    &:active {
+      background: $color-primary;
+    }
+  }
+
+  &__user__item {
+    border: 2px solid transparent;
+    font-family: $font-primary;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    margin-left: 0.2rem;
+    margin-right: 0.2rem;
+    padding: 0.1rem;
+    text-transform: uppercase;
+    &:hover,
+    &:active {
+      color: $color-primary;
+      background: $color-primary;
+    }
+  }
+}
+
+// Overrides react-bootstrap's inbuilt selectors
+
+.navbar-brand {
+  a {
+    color: $color-black;
+    font-family: $font-secondary;
+    font-size: 2rem;
+    letter-spacing: 3px;
+    margin-left: 1rem;
+    &:hover {
+      color: $color-primary;
+      text-decoration: none;
+    }
+  }
+}
+
+.nav-item .dropdown-menu {
+  border: 0px;
+  border-radius: 0px;
+  padding: 0;
+  background-color: $color-primary;
+}
+
+.dropdown-item {
+  color: $color-black !important;
+
+  &:hover {
+    background-color: $color-secondary !important;
+  }
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: $color-black !important;
+}
