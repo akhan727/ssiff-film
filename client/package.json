@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "sass" : "sass src/Sass:src/Css --watch --no-source-map"
   },
   "dependencies": {
     "@types/react": "^17.0.3",

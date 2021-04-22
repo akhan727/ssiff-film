@@ -1,5 +1,8 @@
 @use '../abstracts' as *;
 
-.header-style {
-  background-color: $color-gray-dark;
+.main-header {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
 }
