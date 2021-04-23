@@ -21,9 +21,7 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
   return (
     <Navbar bg="dark" expand="xl" sticky="top">
       <Navbar.Brand>
-        <Link href="/">
-          <a>SSIFF</a>
-        </Link>
+        <Link href="/" passHref><Nav.Link >SSIFF</Nav.Link></Link>
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>           
@@ -39,16 +37,16 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
             onMouseLeave={hideDropdown1}
             >
               <NavDropdown.Item>
-                <a>SSIFF21 SPRING FESTIVAL</a>
+                <Link href="/" passHref><Nav.Link >SSIFF21 SPRING FESTIVAL</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <a>SSIFF21 FALL FESTIVAL</a>
+                <Link href="/" passHref><Nav.Link >SSIFF21 FALL FESTIVAL</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <a>HOW TO SSIFF</a>
+                <Link href="/" passHref><Nav.Link >HOW TO SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <a>SSIFF MERCH</a>
+                <Link href="/" passHref><Nav.Link >SSIFF MERCH</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown>
 
@@ -61,13 +59,13 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
             onMouseLeave={hideDropdown2}
             >
               <NavDropdown.Item>
-                <a>SSIFF MEMBERSHIP</a>
+                <Link href="/" passHref><Nav.Link >SSIFF MEMBERSHIP</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <a>DONATE TO SSIFF</a>
+                <Link href="/" passHref><Nav.Link >DONATE TO SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <a>VOLUNTEER AT SSIFF</a>
+                <Link href="/" passHref><Nav.Link >VOLUNTEER AT SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown>
 
@@ -80,10 +78,10 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
             onMouseLeave={hideDropdown3}
             >
               <NavDropdown.Item>
-                <a>ABOUT SSIFF</a>
+                <Link href="/" passHref><Nav.Link >ABOUT SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <a>CONTACT SSIFF</a>
+                <Link href="/" passHref><Nav.Link >CONTACT SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown> 
           </Nav>
@@ -91,20 +89,20 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
         {!currentUser && (
           <Nav className="navbar-nav ml-auto">
             <Nav.Item className="navigation__user__item">
-              <Nav.Link href="/">PROFILE</Nav.Link>
+              <Link href="/" passHref><Nav.Link >PROFILE</Nav.Link></Link>
             </Nav.Item>
             <Nav.Item className="navigation__user__button">
-              <Nav.Link href="/auth/signout">SIGN OUT</Nav.Link>
+              <Link href="/auth/signout" passHref><Nav.Link >SIGN OUT</Nav.Link></Link>
             </Nav.Item>
           </Nav>
         )}
         {currentUser && (
           <Nav className="navbar-nav ml-auto">
             <Nav.Item className="navigation__user__item">
-              <Nav.Link href="/auth/signin">SIGN IN</Nav.Link>
+              <Link href="/auth/signin" passHref><Nav.Link >SIGN IN</Nav.Link></Link>
             </Nav.Item>
             <Nav.Item className="navigation__user__button">
-              <Nav.Link href="/auth/signup">SIGN UP</Nav.Link>
+              <Link href="/auth/signup" passHref><Nav.Link >SIGN UP</Nav.Link></Link>
             </Nav.Item>
           </Nav>
         )}
