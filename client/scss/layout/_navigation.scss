@@ -45,7 +45,9 @@
   }
 }
 
-// Overrides react-bootstrap's inbuilt selectors
+///////////////////////////////////////////////////
+// Overrides react-bootstrap's inbuilt selectors //
+///////////////////////////////////////////////////
 
 // BRAND
 .navbar-brand {
@@ -88,4 +90,9 @@
   font-family: $font-primary !important;
   font-size: $font-size-primary !important;
   letter-spacing: $letter-spacing-primary !important;
+}
+
+// SIGN-UP, SIGN-OUT
+.navbar-nav {
+  margin-right: 1rem;
 }

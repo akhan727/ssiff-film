@@ -1,10 +1,13 @@
 import React from 'react';
 import Navigation from '../Navigation';
 
-const Layout = () => {
+export interface LayoutProps extends CurrentUserResponse {}
+
+export const Layout: React.FC<LayoutProps> = ({ currentUser, children }) => {
   return (
     <>
-      <Navigation />
+      <Navigation currentUser={currentUser} />
+      <div className='container'>{children}</div>
     </>
   );
 };
