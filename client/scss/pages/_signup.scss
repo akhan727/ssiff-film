@@ -1,9 +1,70 @@
 @use '../abstracts' as *;
 
-.signup-header {
-  font-family: $font-secondary;
-  color: $color-primary;
+.auth-form {
+  font-family: $font-text;
+  color: $color-gray-dark;
+  display: block;
+  border: 5px solid $color-primary;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 2rem;
+  width: 400px;
+}
+
+.alert-danger {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: $color-primary !important;
+}
+
+.alert {
+  padding: 0.1rem !important;
+  margin-top: 1rem !important;
+  border: 0px solid transparent !important;
+  border-radius: 0 !important;
+}
+
+.animated-gif {
+  align-items: center;
   display: flex;
   justify-content: center;
+}
+
+.form-control {
+  border: 0px solid transparent !important;
+  border-radius: 0 !important;
+  background: $color-gray-dark !important;
+  color: $color-black !important;
+  &:focus {
+    border-color: transparent !important;
+    color: $color-black !important;
+    box-shadow: none !important;
+  }
+}
+
+.form-type-title {
+  color: $color-primary;
+  display: flex;
+  font-family: $font-primary;
+  font-size: 4rem;
+  justify-content: center;
   align-items: center;
+}
+
+.btn-primary {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 2rem !important;
+  border: 2px solid $color-gray-dark !important;
+  border-radius: 0px !important;
+  color: $color-gray-dark !important;
+  background-color: transparent !important;
+  &:hover {
+    border-color: $color-primary !important;
+    color: $color-primary !important;
+  }
+  &:focus {
+    box-shadow: none !important;
+  }
 }

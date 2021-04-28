@@ -12,6 +12,7 @@ export const SignUp: NextPage<Props> = ({ currentUser }) => {
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  // useRequest HOOK
   const [doRequest, errors] = useRequest<SignUpRequestBody, SignUpResponse>({
     body: { email, password },
     method: 'POST',
@@ -22,7 +23,7 @@ export const SignUp: NextPage<Props> = ({ currentUser }) => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    doRequest();
+    await doRequest();
   };
 
   return (

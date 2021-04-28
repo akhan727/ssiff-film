@@ -1,4 +1,6 @@
 import React from 'react';
+import { Form, Button } from 'react-bootstrap';
+import Image from 'next/image';
 
 interface Props {
   type: 'Sign In' | 'Sign Up';
@@ -19,29 +21,49 @@ export const AuthForm: React.FC<Props> = ({
   onSubmit,
   errors
 }) => {
+  console.log('!!!!!!!!!!!!!!! errors: ', {errors});
   return (
-    <form onSubmit={onSubmit}>
-      <h1>{type}</h1>
-      <div className="form-group">
-        <label>Email Address</label>
-        <input
-          className="form-control"
-          value={email}
-          onChange={e => setEmail(e.target.value)}
-        />
+    <>
+      <div className="auth-form">
+        <Form onSubmit={onSubmit} noValidate>
+          <h1 className="form-type-title">{type}</h1>
+          <div className="animated-gif">
+            <Image src="/eye.gif" alt="eye-gif" width="256" height="232"/>
+          </div>
+          <Form.Group>
+            <Form.Label>Email Address</Form.Label>
+            <Form.Control 
+              type="email" 
+              className="form-control"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+            />
+          </Form.Group>
+          
+          <Form.Group>
+            <Form.Label>Password</Form.Label>
+            <Form.Control 
+              type="password" 
+              className="form-control"
+              value={password}
+              onChange={e => setPassword(e.target.value)}
+            />
+            <Form.Text className="form-error-text">
+              {errors}
+            </Form.Text>
+          </Form.Group>
+          
+          
+
+          <Button variant="primary" type="submit">{type}</Button>
+
+        </Form>
       </div>
-      <div className="form-group">
-        <label>Password</label>
-        <input
-          type="password"
-          className="form-control"
-          value={password}
-          onChange={e => setPassword(e.target.value)}
-        />
+      
+      <div className="animated-gif">
+        <Image src="/rainbow-sludge.gif" alt="rainbow-sludge-gif" width="405" height="325"/>
       </div>
-      {errors}
-      <button className="btn btn-primary">{type}</button>
-    </form>
+    </>
   );
 };
 

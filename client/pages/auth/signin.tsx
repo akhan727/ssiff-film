@@ -22,7 +22,7 @@ export const SignIn: NextPage<Props> = ({ currentUser }) => {
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    doRequest();
+    await doRequest();
   };
 
   return (

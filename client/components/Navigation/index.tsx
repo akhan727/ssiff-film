@@ -6,6 +6,12 @@ interface Props extends CurrentUserResponse {}
 
 export const Navigation: React.FC<Props> = ({ currentUser }) => {
   
+  if (!currentUser) {
+    console.log('%%%%%NAVIGATION%%%%% !currentUser');
+  } else {
+    console.log('%%%%%NAVIGATION%%%%% currentUser');
+  }
+
   const [show1, setShow1] = useState(false);
   const showDropdown1 = () => {setShow1(!show1);}
   const hideDropdown1 = () => {setShow1(false);}
@@ -19,14 +25,14 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
   const hideDropdown3 = () => {setShow3(false);}
   
   return (
-    <Navbar bg="dark" expand="xl" sticky="top">
+    <Navbar bg="dark" expand="lg" sticky="top">
       <Navbar.Brand>
         <Link href="/" passHref><Nav.Link >SSIFF</Nav.Link></Link>
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>           
         
-        {!currentUser && (
+        {currentUser && (
           <Nav>
             <NavDropdown 
             title="FESTIVALS x EVENTS" 
@@ -44,9 +50,6 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
               </NavDropdown.Item>
               <NavDropdown.Item>
                 <Link href="/" passHref><Nav.Link >HOW TO SSIFF</Nav.Link></Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >SSIFF MERCH</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown>
 
@@ -81,12 +84,15 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
                 <Link href="/" passHref><Nav.Link >ABOUT SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
+                <Link href="/" passHref><Nav.Link >SSIFF MERCH</Nav.Link></Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
                 <Link href="/" passHref><Nav.Link >CONTACT SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown> 
           </Nav>
         )}
-        {!currentUser && (
+        {currentUser && (
           <Nav className="navbar-nav ml-auto">
             <Nav.Item className="navigation__user__item">
               <Link href="/" passHref><Nav.Link >PROFILE</Nav.Link></Link>
@@ -96,7 +102,7 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
             </Nav.Item>
           </Nav>
         )}
-        {currentUser && (
+        {!currentUser && (
           <Nav className="navbar-nav ml-auto">
             <Nav.Item className="navigation__user__item">
               <Link href="/auth/signin" passHref><Nav.Link >SIGN IN</Nav.Link></Link>

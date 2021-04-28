@@ -27,6 +27,7 @@ export function useRequest<Body = any, Response = any>({
         data: { ...body, ...props }
       });
 
+      // Empty for now
       if (onSuccess) onSuccess(response.data);
 
       return response.data as Response;

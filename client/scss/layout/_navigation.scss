@@ -5,8 +5,7 @@
     font-family: $font-primary;
     font-size: $font-size-primary;
     letter-spacing: $letter-spacing-primary;
-    margin-left: 0.2rem;
-    margin-right: 0.2rem;
+    margin-left: 0.5rem;
     text-transform: uppercase;
     &:hover {
       background-color: $color-primary;
@@ -18,9 +17,8 @@
     font-family: $font-primary;
     font-size: $font-size-primary;
     letter-spacing: $letter-spacing-primary;
-    margin-left: 0.2rem;
-    margin-right: 0.2rem;
-    padding: 0.1rem;
+    margin-left: 0.5rem;
+    padding: 0;
     text-transform: uppercase;
     &:hover,
     &:active {
@@ -35,7 +33,7 @@
     letter-spacing: $letter-spacing-primary;
     margin-left: 0.2rem;
     margin-right: 0.2rem;
-    padding: 0.1rem;
+    padding: 0;
     text-transform: uppercase;
     &:hover,
     &:active {
@@ -45,18 +43,26 @@
   }
 }
 
-///////////////////////////////////////////////////
-// Overrides react-bootstrap's inbuilt selectors //
-///////////////////////////////////////////////////
+///////////////////////////////////////////////////////
+///  Overrides react-bootstrap's inbuilt selectors  ///
+///////////////////////////////////////////////////////
+
+// NAVBAR
+.navbar {
+  padding-left: 4rem !important;
+  padding-right: 4rem !important;
+}
 
 // BRAND
 .navbar-brand {
+  padding: 0;
+  margin: 0;
   a {
     color: $color-black;
     font-family: $font-secondary;
     font-size: $font-size-secondary;
     letter-spacing: $letter-spacing-secondary;
-    margin-left: 1rem;
+    padding: 0;
     &:hover {
       color: $color-primary;
       text-decoration: none;
@@ -90,9 +96,4 @@
   font-family: $font-primary !important;
   font-size: $font-size-primary !important;
   letter-spacing: $letter-spacing-primary !important;
-}
-
-// SIGN-UP, SIGN-OUT
-.navbar-nav {
-  margin-right: 1rem;
 }
