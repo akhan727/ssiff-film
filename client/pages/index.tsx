@@ -1,14 +1,15 @@
 import React from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import { NextPage } from 'next';
 //import Link from 'next/link';
 import Layout from '../components/Layout';
 import { withAuthServerSideProps } from '../hocs/withAuthServerSideProps';
 import Image from 'next/image';
 
+interface Props extends CurrentUserResponse {}
 
-const Landing: NextPage<CurrentUserResponse> = ({ currentUser }) => {
-  console.log('User Status: ',currentUser);
+const LandingPage: NextPage<Props> = ({ currentUser }) => {
+  console.log('^^^^^LANDING PAGE^^^^^ current user: ', currentUser)
 
   if (!currentUser) {
     console.log('%%%%%LANDING%%%%% !currentUser');
@@ -20,25 +21,28 @@ const Landing: NextPage<CurrentUserResponse> = ({ currentUser }) => {
     <>
       <Layout currentUser={currentUser}>
         <div className="landing">
-          <Image src="/ssiff-logo-2021.png" alt="main-logo" width="1200" height="668"/>
+          <Image src="/ssiff-logo-2021.png" alt="main-logo" width="1200" height="654"/>
         </div>
       </Layout>
     </>
   );
 };
 
+/*
 export const getServerSideProps = withAuthServerSideProps<{
-  userStatus: CurrentUserResponse;
+  tickets: GetTicketsResponse;
 }>(async context => {
-  console.log('$$$$$$$$$$$$$$$$$$$$$$$');
-  const { data } = await axios.get<CurrentUserResponse>(
-    'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser',
+  const { data } = await axios.get<GetTicketsResponse>(
+    'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/tickets',
     {
       headers: context.req.headers
     }
   );
 
-  return { props: { userStatus: data } };
+  return { props: { tickets: data } };
 });
+*/
 
-export default Landing;
+export const getServerSideProps = withAuthServerSideProps();
+
+export default LandingPage;

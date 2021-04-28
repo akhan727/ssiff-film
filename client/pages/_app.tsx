@@ -1,7 +1,11 @@
-import '../scss/styles.scss';
+import '../scss/styles.scss'
 import type { AppProps } from 'next/app'
 
+
+
 function MyApp({ Component, pageProps }: AppProps) {
+  console.log('***** Component *****', Component);
+  console.log('***** pageProps *****', pageProps);
   return <Component {...pageProps} />
 }
 

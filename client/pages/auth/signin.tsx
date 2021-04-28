@@ -9,9 +9,12 @@ import useRequest from '../../hooks/useRequest';
 interface Props extends CurrentUserResponse {}
 
 export const SignIn: NextPage<Props> = ({ currentUser }) => {
+  console.log('^^^^^SIGN IN^^^^^ current user: ', currentUser)
+  // useState HOOK
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
 
+  // useRequest HOOK
   const [doRequest, errors] = useRequest<SignInRequestBody, SignInResponse>({
     body: { email, password },
     method: 'POST',
@@ -19,9 +22,9 @@ export const SignIn: NextPage<Props> = ({ currentUser }) => {
     onSuccess: () => Router.push('/')
   });
 
+
   const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-
     await doRequest();
   };
 
