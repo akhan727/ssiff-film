@@ -31,6 +31,7 @@ export function withAuthServerSideProps<Q>(
       return { props };
     }
 
+    // 
     const result = (await getServerSidePropsFunc(context)) as { props: Q };
     console.log('withAuth - results: ', result);
     if (result && result.props) {

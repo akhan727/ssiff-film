@@ -4,8 +4,7 @@ import jwt from 'jsonwebtoken';
 
 import { PasswordUtils } from '../utils/password.utils';
 import { User } from '../models/user.model';
-import { validateRequest } from '../middlewares/validate-request';
-import { BadRequestError } from '../errors/bad-request-error';
+import { validateRequest, BadRequestError } from '@ssiff-film/common';
 import { SignInDto } from '../dtos/signin.dto';
 
 const router = express.Router();
