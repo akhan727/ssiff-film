@@ -1,8 +1,6 @@
 import '../scss/styles.scss'
 import type { AppProps } from 'next/app'
 
-
-
 function MyApp({ Component, pageProps }: AppProps) {
   console.log('***** Component *****', Component);
   console.log('***** pageProps *****', pageProps);
@@ -20,7 +18,5 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 //   return { ...appProps }
 // }
-
-
 
 export default MyApp

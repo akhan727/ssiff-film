@@ -9,17 +9,17 @@ import Image from 'next/image';
 interface Props extends CurrentUserResponse {}
 
 const LandingPage: NextPage<Props> = ({ currentUser }) => {
+  
   console.log('^^^^^LANDING PAGE^^^^^ current user: ', currentUser)
-
   if (!currentUser) {
-    console.log('%%%%%LANDING%%%%% !currentUser');
+    console.log('^^^^^LANDING PAGE^^^^^ !currentUser');
   } else {
-    console.log('%%%%%LANDING%%%%% currentUser');
+    console.log('^^^^^LANDING PAGE^^^^^ currentUser');
   }
 
   return (
     <>
-      <Layout currentUser={currentUser}>
+      <Layout currentUser={currentUser} title='Home'>
         <div className="landing">
           <Image src="/ssiff-logo-2021.png" alt="main-logo" width="1200" height="654"/>
         </div>

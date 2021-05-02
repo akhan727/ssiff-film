@@ -1,6 +1,6 @@
-import React from 'react';
-import { Form, Button } from 'react-bootstrap';
-import Image from 'next/image';
+import React from 'react'
+import { Form, Button } from 'react-bootstrap'
+import Image from 'next/image'
 
 interface Props {
   type: 'Sign In' | 'Sign Up';
@@ -21,15 +21,18 @@ export const AuthForm: React.FC<Props> = ({
   onSubmit,
   errors
 }) => {
-  console.log('!!!!!!!!!!!!!!! errors: ', {errors});
+  
   return (
     <>
       <div className="auth-form">
         <Form onSubmit={onSubmit} noValidate>
+          
           <h1 className="form-type-title">{type}</h1>
+          
           <div className="animated-gif">
             <Image src="/eye.gif" alt="eye-gif" width="256" height="232"/>
           </div>
+          
           <Form.Group>
             <Form.Label>Email Address</Form.Label>
             <Form.Control 
@@ -52,8 +55,6 @@ export const AuthForm: React.FC<Props> = ({
               {errors}
             </Form.Text>
           </Form.Group>
-          
-          
 
           <Button variant="primary" type="submit">{type}</Button>
 
@@ -65,6 +66,6 @@ export const AuthForm: React.FC<Props> = ({
       </div>
     </>
   );
-};
+}
 
-export default AuthForm;
+export default AuthForm

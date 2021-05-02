@@ -30,7 +30,7 @@ export const SignIn: NextPage<Props> = ({ currentUser }) => {
 
   return (
     <>
-      <Layout currentUser={currentUser}>
+      <Layout currentUser={currentUser} title='Sign In'>
         <AuthForm
           onSubmit={onSubmit}
           email={email}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export const ErrorsAlert: React.FC = ({ children }) => {
   return (
@@ -6,6 +6,6 @@ export const ErrorsAlert: React.FC = ({ children }) => {
       {children}
     </div>
   );
-};
+}
 
-export default ErrorsAlert;
+export default ErrorsAlert

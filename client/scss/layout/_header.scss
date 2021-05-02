@@ -1,1 +1,9 @@
+@use '../abstracts' as *;
 
+.page-title {
+  color: $color-primary;
+  font-family: $font-secondary;
+  font-size: $font-size-page-title;
+  letter-spacing: $letter-spacing-page-title;
+  text-align: center;
+}

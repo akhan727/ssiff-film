@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import React, { useState } from 'react'
+import Link from 'next/link'
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
 
 interface Props extends CurrentUserResponse {}
 
@@ -43,13 +43,13 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
             onMouseLeave={hideDropdown1}
             >
               <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >SSIFF21 SPRING FESTIVAL</Nav.Link></Link>
+                <Link href="/festevents/spring" passHref><Nav.Link >SSIFF21 SPRING FESTIVAL</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >SSIFF21 FALL FESTIVAL</Nav.Link></Link>
+                <Link href="/festevents/fall" passHref><Nav.Link >SSIFF21 FALL FESTIVAL</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >HOW TO SSIFF</Nav.Link></Link>
+                <Link href="/festevents/how" passHref><Nav.Link >HOW TO SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown>
 
@@ -62,13 +62,16 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
             onMouseLeave={hideDropdown2}
             >
               <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >SSIFF MEMBERSHIP</Nav.Link></Link>
+                <Link href="/support/membership" passHref><Nav.Link >SSIFF MEMBERSHIP</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >DONATE TO SSIFF</Nav.Link></Link>
+                <Link href="/support/merch" passHref><Nav.Link >SSIFF MERCH</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >VOLUNTEER AT SSIFF</Nav.Link></Link>
+                <Link href="/support/donate" passHref><Nav.Link >DONATE TO SSIFF</Nav.Link></Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link href="/support/volunteer" passHref><Nav.Link >VOLUNTEER AT SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown>
 
@@ -81,13 +84,10 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
             onMouseLeave={hideDropdown3}
             >
               <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >ABOUT SSIFF</Nav.Link></Link>
+                <Link href="/about/about" passHref><Nav.Link >ABOUT SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >SSIFF MERCH</Nav.Link></Link>
-              </NavDropdown.Item>
-              <NavDropdown.Item>
-                <Link href="/" passHref><Nav.Link >CONTACT SSIFF</Nav.Link></Link>
+                <Link href="/about/contact" passHref><Nav.Link >CONTACT SSIFF</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown> 
           </Nav>
@@ -95,7 +95,7 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
         {currentUser && (
           <Nav className="navbar-nav ml-auto">
             <Nav.Item className="navigation__user__item">
-              <Link href="/" passHref><Nav.Link >PROFILE</Nav.Link></Link>
+              <Link href="/profile/profile" passHref><Nav.Link >PROFILE</Nav.Link></Link>
             </Nav.Item>
             <Nav.Item className="navigation__user__button">
               <Link href="/auth/signout" passHref><Nav.Link >SIGN OUT</Nav.Link></Link>
@@ -116,6 +116,6 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
       </Navbar.Collapse>
     </Navbar>
   );
-};
+}
 
-export default Navigation;
+export default Navigation

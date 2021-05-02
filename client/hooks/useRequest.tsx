@@ -1,7 +1,7 @@
-import axios from 'axios';
-import { useState } from 'react';
-import { ApiError } from '..';
-import { ErrorsAlert } from '../components/ErrorsAlert';
+import axios from 'axios'
+import { useState } from 'react'
+import { ApiError } from '..'
+import { ErrorsAlert } from '../components/ErrorsAlert'
 
 interface UseRequestParams<Body, Response> {
   url: string;
@@ -57,4 +57,4 @@ export function useRequest<Body = any, Response = any>({
   return [doRequest, errors] as const;
 }
 
-export default useRequest;
+export default useRequest

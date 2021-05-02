@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { GetServerSideProps, GetServerSidePropsContext } from 'next';
-import { ParsedUrlQuery } from 'querystring';
+import axios from 'axios'
+import { GetServerSideProps, GetServerSidePropsContext } from 'next'
+import { ParsedUrlQuery } from 'querystring'
 
 export function withAuthServerSideProps<Q>(
   getServerSidePropsFunc?: GetServerSideProps<Q>
