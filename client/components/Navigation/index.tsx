@@ -26,7 +26,7 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
   
   return (
     <Navbar bg="dark" expand="lg" sticky="top">
-      <Navbar.Brand>
+      <Navbar.Brand className="order-md-0 mx-auto order-1">
         <Link href="/" passHref><Nav.Link >SSIFF</Nav.Link></Link>
       </Navbar.Brand>
       <Navbar.Toggle />
