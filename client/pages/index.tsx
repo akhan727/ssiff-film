@@ -20,9 +20,28 @@ const LandingPage: NextPage<Props> = ({ currentUser }) => {
   return (
     <>
       <Layout currentUser={currentUser} title='Home'>
-        <div className="landing">
-          <Image src="/ssiff-logo-2021.png" alt="main-logo" width="1200" height="654"/>
-        </div>
+        
+        {currentUser && (
+          <div className="ssiff-landing">
+            <div className="ssiff21-landing-gif">
+              <Image src="/trippy.gif" alt="trippy-gif" width="916" height="498.16"/>
+            </div>
+            <div className="ssiff21-landing-logo">
+              <Image src="/ssiff-logo-2021.svg" alt="main-logo" width="1300" height="707"/>
+            </div>
+            <div className="ssiff21-landing-logo">
+              <Image src="/audience.svg" alt="audience-logo" width="1299" height="482"/>
+            </div>
+          </div>
+        )}
+        {!currentUser && (
+          <>
+            <div className="ssiff21-landing-logo">
+              <Image src="/ssiff-logo-2021.svg" alt="main-logo" width="1300" height="707"/>
+            </div>
+          </>
+        )}
+        
       </Layout>
     </>
   );

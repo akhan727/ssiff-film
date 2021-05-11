@@ -20,10 +20,13 @@ html {
 
 html body {
   background-color: $color-black;
+  color: $color-primary;
+  font-family: $font-text;
+  font-size: $font-size-text;
+  letter-spacing: $letter-spacing-text;
   line-height: 1;
 }
 
 body {
   box-sizing: border-box;
-  font-family: $font-primary;
 }

@@ -17,7 +17,7 @@
     font-family: $font-primary;
     font-size: $font-size-primary;
     letter-spacing: $letter-spacing-primary;
-    margin-left: 0.5rem;
+    margin-left: 0.2rem;
     padding: 0;
     text-transform: uppercase;
     &:hover,
@@ -39,6 +39,7 @@
     &:active {
       color: $color-primary;
       background: $color-primary;
+      border: 2px solid $color-gray-dark;
     }
   }
 }
@@ -49,8 +50,10 @@
 
 // NAVBAR
 .navbar {
+  background-color: $color-gray-dark !important;
   padding-left: 4rem !important;
   padding-right: 4rem !important;
+  text-align: center !important;
 }
 
 // BRAND

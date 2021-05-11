@@ -1,0 +1,66 @@
+@use '../abstracts' as *;
+
+.ssiff-landing {
+  position: relative;
+}
+
+.ssiff21-landing-logo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  filter: $filter-orangered;
+}
+
+.ssiff21-landing-gif {
+  position: absolute;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.ssiff21-spring-gif {
+  position: absolute;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  filter: grayscale(100%);
+}
+
+.ssiff21-spring-logo-underlay {
+  position: absolute;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.hands-logo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  filter: $filter-orangered;
+}
+
+.animated-gif {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  &__custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  &__small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0;
+  }
+}

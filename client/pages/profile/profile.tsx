@@ -10,7 +10,7 @@ export const ProfilePage: NextPage<Props> = ({ currentUser }) => {
 	return (
 		<>
 		  <Layout currentUser={currentUser} title='Profile'>
-		  	<h1 className="page-title">Profile</h1>
+		  	<h1 className="page__title">Profile</h1>
       </Layout>
 		</>
 	)

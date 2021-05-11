@@ -9,7 +9,7 @@ export const FallPage: NextPage<Props> = ({ currentUser }) => {
 	return (
 		<>
 		  <Layout currentUser={currentUser} title='SSIFF21 Fall Festival'>
-		  	<h1 className="page-title">SSIFF21 FALL FESTIVAL</h1>
+		  	<h1 className="page__title">SSIFF21 FALL FESTIVAL</h1>
       </Layout>
 		</>
 	)

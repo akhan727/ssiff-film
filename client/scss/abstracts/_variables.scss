@@ -1,24 +1,37 @@
 // COLOR VARIABLES
-$color-primary: orangered;
+$color-primary: #ff4400;
 $color-secondary: yellow;
 $color-tertiary: magenta;
 
 $color-white: #fff;
 $color-black: #000;
 
-$color-gray-dark: darkslategray;
+$color-gray-dark: #203636;
 
 // FONT VARIABLES
 $font-primary: 'Messages';
 $font-secondary: 'a Alloy Ink';
-$font-text: 'Open Sans', sans-serif;
+$font-text: 'Roboto', sans-serif;
 
 // FONT SIZE
 $font-size-primary: 2rem;
 $font-size-secondary: 2rem;
 $font-size-page-title: 4rem;
+$font-size-page-subtitle: 2rem;
+$font-size-text: 1rem;
+$font-size-page-statement: 1.25rem;
+$font-size-text-large: 3rem;
 
 // LETTER SPACING
 $letter-spacing-primary: 1px;
 $letter-spacing-secondary: 3px;
-$letter-spacing-page-title: 3px;
+$letter-spacing-page-title: 6px;
+$letter-spacing-page-statement: 0.02em;
+$letter-spacing-text: 0.02em;
+
+// LINE HEIGHT
+$line-height-page-statement: 2rem;
+
+// COLOR FILTERS
+$filter-orangered: invert(33%) sepia(73%) saturate(4087%) hue-rotate(2deg)
+  brightness(106%) contrast(104%);
