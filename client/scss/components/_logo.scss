@@ -1,0 +1,71 @@
+@use '../abstracts' as *;
+
+.ssiff-logo {
+  position: relative;
+
+  &__svg {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    filter: $filter-orangered;
+  }
+
+  &__gif {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+    &__spring {
+      position: absolute;
+      margin-left: auto;
+      margin-right: auto;
+      left: 0;
+      right: 0;
+      text-align: center;
+      margin-bottom: 2rem;
+      filter: grayscale(100%);
+    }
+  }
+
+  &__underlay {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+}
+
+.animated-gif {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  &__custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  &__small {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+}
+
+.hands-logo {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+  filter: $filter-orangered;
+}

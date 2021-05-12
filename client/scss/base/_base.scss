@@ -10,11 +10,11 @@
 
 html {
   // This defines what 1rem is
-  font-size: 100%; //1 rem = 16px; 16px/16px = 100%
+  font-size: 81.25%; //1 rem = 16px; 16px/16px = 100%
 
   @include respond(tablet-landscape) {
     // width < 1200?
-    font-size: 81.25%; // 1rem = 13px, 12/16 = 50%
+    font-size: 81.25%; // 1rem = 13px, 13/16 = 81.25%
   }
 }
 

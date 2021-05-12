@@ -79,6 +79,10 @@
   border-radius: 0px;
   padding: 0;
   background-color: $color-primary;
+
+  @media (max-width: 991px) {
+    text-align: center;
+  }
 }
 
 // ITEM

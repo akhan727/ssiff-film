@@ -1,24 +1,22 @@
 @use '../abstracts' as *;
 
+@use '../abstracts' as *;
+
 .movie {
-  &__list__spring21 {
+  &__list {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
   }
 
-  &__listing__spring21 {
+  &__listing {
     width: calc(94.3231441% / 3);
     height: auto;
     position: relative;
     flex-direction: column;
     margin-bottom: 26px;
     background-color: $color-gray-dark;
-    //padding: 1rem;
-    //border-width: clamp(3px, 1.18px + 0.48vw, 7px);
-    //border-style: solid;
-    //border-color: $color-primary;
     font-size: 14px;
 
     @include respond(tablet-portrait) {
@@ -28,37 +26,35 @@
     @include respond(phone) {
       width: 100%;
     } //600px
-  }
 
-  &__listing__image {
-    max-width: 100%;
-    max-height: 100%;
-    display: block;
-  }
-
-  &__listing__img {
-    width: 100%;
-    height: auto;
-  }
-
-  &__listing__info {
-    color: $color-black;
-    text-align: left;
-    margin-bottom: 0 !important;
-    padding: 1rem;
-    &__title {
-      color: $color-primary;
-      font-size: 20px;
-      font-weight: bold;
+    &__image {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
     }
-    &__synopsis {
+
+    &__img {
+      width: 100%;
+      height: auto;
+    }
+
+    &__info {
       color: $color-black;
-      height: 85px;
-      overflow: auto;
+      text-align: left;
+      padding: 1rem;
+
+      &__title {
+        color: $color-primary;
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      &__synopsis {
+        color: $color-black;
+        height: 85px;
+        overflow: auto;
+        margin-bottom: 1rem;
+      }
     }
   }
-}
-
-p {
-  margin-bottom: 0 !important;
 }
