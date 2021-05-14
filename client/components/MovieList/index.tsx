@@ -31,7 +31,9 @@ export const MovieList: React.FC<Props> = ({
 						<div>
 							<p>{movie.venue}<br/>{movie.datetime}</p>
 						</div>
-						<p>{movie.price}</p>
+						<div className="movie__listing__info__price">
+							<p>{movie.price}</p>
+						</div>
 						<button className="button__ticket">ADD TO CART</button>
 					</div>
 				

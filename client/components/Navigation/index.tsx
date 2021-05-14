@@ -108,17 +108,20 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
             onMouseLeave={hideDropdown4}
             >
               <NavDropdown.Item>
-                <Link href="/profile" passHref><Nav.Link >PROFILE</Nav.Link></Link>
+                <Link href="/profile" passHref><Nav.Link >PROFILE SETTINGS</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link href="/orders" passHref><Nav.Link >ORDERS</Nav.Link></Link>
+                <Link href="/orders" passHref><Nav.Link >MY ORDERS</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
                 <Link href="/auth/signout" passHref><Nav.Link >SIGN OUT</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown>
             <Nav.Item className="navigation__drop__title">
-              <Link href="/" passHref><Nav.Link >CART 0</Nav.Link></Link>
+              
+              <Link href="/" passHref>
+                <Nav.Link >CART 0</Nav.Link>
+              </Link>
             </Nav.Item>
           </Nav>
         )}

@@ -9,7 +9,7 @@ export const OrdersPage: NextPage<Props> = ({ currentUser }) => {
 	return (
 		<>
 		  <Layout currentUser={currentUser} title='Orders'>
-		  	<h1 className="page__title__custom">ORDERS</h1>
+		  	<h1 className="page__title__custom">My Orders</h1>
       </Layout>
 		</>
 	)

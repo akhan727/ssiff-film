@@ -55,6 +55,11 @@
         overflow: auto;
         margin-bottom: 1rem;
       }
+
+      &__price {
+        color: $color-black;
+        font-weight: bold;
+      }
     }
   }
 }
