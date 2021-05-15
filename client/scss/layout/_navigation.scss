@@ -16,7 +16,6 @@
   }
 
   &__drop__title__profile {
-    position: absolute;
     font-family: $font-primary;
     font-size: $font-size-primary;
     letter-spacing: $letter-spacing-primary;
@@ -63,6 +62,33 @@
       border: 2px solid $color-gray-dark;
     }
   }
+
+  &__cart {
+    font-family: $font-primary;
+    font-size: $font-size-primary;
+    letter-spacing: $letter-spacing-primary;
+    margin-left: 0.5rem;
+    padding-top: 0.375rem;
+    padding-left: 0.375rem;
+    padding-right: 0.375rem;
+    padding-bottom: 0rem;
+    &:hover {
+      background-color: $color-primary;
+    }
+  }
+}
+
+.menu-title {
+  display: flex;
+  align-content: center;
+  flex-wrap: no-wrap;
+  @media (max-width: 991px) {
+    justify-content: center;
+  }
+}
+
+.menu-icon {
+  top: -1px !important;
 }
 
 ///////////////////////////////////////////////////////
@@ -73,7 +99,7 @@
 .navbar {
   background-color: $color-gray-dark !important;
   padding-left: 4rem !important;
-  padding-right: 4rem !important;
+  padding-right: 3.125rem !important;
   text-align: center !important;
 }
 
@@ -102,7 +128,7 @@
   background-color: $color-primary;
 
   @media (max-width: 991px) {
-    text-align: center;
+    text-align: center !important;
   }
 }
 
@@ -122,9 +148,9 @@
 }
 
 // DROPDOWN ALIGN RIGHT
-.dropdown-menu-right {
-  text-align: right !important;
-}
+//.dropdown-menu-right {
+//left: 100% !important;
+//}
 
 // DROPDOWN (REMOVE CARET)
 .dropdown-toggle::after {
@@ -138,4 +164,10 @@
   font-family: $font-primary !important;
   font-size: $font-size-primary !important;
   letter-spacing: $letter-spacing-primary !important;
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: $color-gray-dark;
+  }
 }

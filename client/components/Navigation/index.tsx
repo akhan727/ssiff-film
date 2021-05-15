@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Link from 'next/link'
 import { Nav, Navbar, NavDropdown } from 'react-bootstrap'
+import Image from 'next/image'
 
 interface Props extends CurrentUserResponse {}
 
@@ -27,6 +28,24 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
   const [show4, setShow4] = useState(false);
   const showDropdown4 = () => {setShow4(!show4);}
   const hideDropdown4 = () => {setShow4(false);}
+
+  const profileIcon = (<Image src="/user.svg" className="menu-icon" alt="profile-icon" width="22" height="22"/>)
+
+  const cartIcon = (<Image src="/cart.svg" className="menu-icon" alt="cart-icon" width="22" height="22"/>)
+  const cartName = "Cart"
+  const cart = (<div className="menu-title">{cartIcon}&nbsp;{cartName}</div>)
+
+  const settingsIcon = (<Image src="/settings.svg" layout="fixed" className="menu-icon" alt="settings-icon" width="22" height="22"/>)
+  const settingsName = "Profile Settings"
+  const settings = (<div className="menu-title">{settingsIcon}&ensp;{settingsName}</div>)
+
+  const deliveredIcon = (<Image src="/delivered.svg" layout="fixed" className="menu-icon" alt="delivered-icon" width="22" height="22"/>)
+  const deliveredName = "My Orders"
+  const delivered = (<div className="menu-title">{deliveredIcon}&ensp;{deliveredName}</div>)
+
+  const logoutIcon = (<Image src="/logout.svg" layout="fixed" className="menu-icon" alt="logout-icon" width="22" height="22"/>)
+  const logoutName = "Sign Out"
+  const logout = (<div className="menu-title">{logoutIcon}&ensp;{logoutName}</div>)
   
   return (
     <Navbar expand="lg" sticky="top">
@@ -99,7 +118,7 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
         {currentUser && (
           <Nav className="navbar-nav ml-auto">
             <NavDropdown 
-            title={currentUser.email.match(/^.+(?=@)/)![0]}
+            title={<div className="menu-title">{profileIcon}&nbsp;{currentUser!.email.match(/^.+(?=@)/)![0]}</div>}
             className="navigation__drop__title__profile" 
             id="profile"
             alignRight
@@ -108,19 +127,19 @@ export const Navigation: React.FC<Props> = ({ currentUser }) => {
             onMouseLeave={hideDropdown4}
             >
               <NavDropdown.Item>
-                <Link href="/profile" passHref><Nav.Link >PROFILE SETTINGS</Nav.Link></Link>
+                <Link href="/profile" passHref><Nav.Link >{settings}</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link href="/orders" passHref><Nav.Link >MY ORDERS</Nav.Link></Link>
+                <Link href="/orders" passHref><Nav.Link >{delivered}</Nav.Link></Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <Link href="/auth/signout" passHref><Nav.Link >SIGN OUT</Nav.Link></Link>
+                <Link href="/auth/signout" passHref><Nav.Link >{logout}</Nav.Link></Link>
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Item className="navigation__drop__title">
-              
+            
+            <Nav.Item className="navigation__cart">  
               <Link href="/" passHref>
-                <Nav.Link >CART 0</Nav.Link>
+                <Nav.Link >{cart}</Nav.Link>
               </Link>
             </Nav.Item>
           </Nav>
