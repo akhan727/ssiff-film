@@ -1,0 +1,14 @@
+@use '../abstracts' as *;
+
+.alert-danger {
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: $color-primary !important;
+}
+
+.alert {
+  padding: 0.1rem !important;
+  margin-top: 1rem !important;
+  border: 0px solid transparent !important;
+  border-radius: 0 !important;
+}
