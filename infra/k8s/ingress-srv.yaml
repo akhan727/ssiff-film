@@ -31,4 +31,4 @@ metadata:
   name: ingress-nginx-srv
 spec:
   type: ExternalName
-  externalName: ingress-nginx-controller.kube-system.svc.cluster.local
+  externalName: ingress-nginx-controller.ingress-nginx.svc.cluster.local

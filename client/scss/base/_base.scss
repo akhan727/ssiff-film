@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  // This defines what 1rem is
+  font-size: 81.25%; //1 rem = 16px; 16px/16px = 100%
+
+  @include respond(tablet-landscape) {
+    // width < 1200?
+    font-size: 81.25%; // 1rem = 13px, 13/16 = 81.25%
+  }
+}
+
+html body {
+  background-color: $color-black;
+  color: $color-primary;
+  font-family: $font-text;
+  font-size: $font-size-text;
+  letter-spacing: $letter-spacing-text;
+  line-height: 1;
+}
+
+body {
+  box-sizing: border-box;
+}

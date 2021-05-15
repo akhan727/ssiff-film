@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+
+.contact {
+  &__form {
+    font-family: $font-text;
+    color: $color-gray-dark;
+    display: block;
+    border: 5px solid $color-primary;
+    margin-top: 4.75rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
+    width: 400px;
+    @include respond(tablet-landscape) {
+      // width < 1200?
+      margin-top: 3.875rem;
+    }
+  }
+  &__title {
+    color: $color-primary;
+    display: flex;
+    font-family: $font-primary;
+    font-size: 4rem;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+  }
+  &__gif {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+  &__control {
+    border: 0px solid transparent !important;
+    border-radius: 0 !important;
+    background: $color-gray-dark !important;
+    color: $color-black !important;
+    &:focus {
+      border-color: transparent !important;
+      color: $color-black !important;
+      box-shadow: none !important;
+    }
+  }
+}

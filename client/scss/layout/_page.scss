@@ -1,0 +1,43 @@
+@use '../abstracts' as *;
+
+.page {
+  &__title {
+    color: $color-primary;
+    font-family: $font-primary;
+    font-size: $font-size-page-title;
+    letter-spacing: $letter-spacing-page-title;
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+    &__custom {
+      color: $color-primary;
+      font-family: $font-primary;
+      font-size: $font-size-page-title;
+      letter-spacing: $letter-spacing-page-title;
+      text-align: center;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+  }
+  &__subtitle {
+    color: $color-primary;
+    font-family: $font-primary;
+    font-size: $font-size-page-subtitle;
+    letter-spacing: $letter-spacing-page-title;
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  &__statement {
+    line-height: $line-height-page-statement;
+    font-size: $font-size-page-statement;
+    letter-spacing: $letter-spacing-page-statement;
+    margin-bottom: 3rem;
+    &__custom {
+      text-align: center;
+      line-height: $line-height-page-statement;
+      font-size: $font-size-page-statement;
+      letter-spacing: $letter-spacing-page-statement;
+      margin-bottom: 2rem;
+    }
+  }
+}
