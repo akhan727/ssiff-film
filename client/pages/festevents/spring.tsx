@@ -168,4 +168,24 @@ export const SpringPage: NextPage<Props> = ({ currentUser }) => {
 
 export const getServerSideProps = withAuthServerSideProps()
 
+// TODO: 
+/*
+export const getServerSideProps = withAuthServerSideProps<{
+  tickets: GetTicketsResponse;
+}>(async context => {
+  const { data } = await axios.get<GetTicketsResponse>(
+    'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/tickets/${ticketId}',
+    {
+      headers: context.req.headers
+    }
+  );
+  
+  const id = params?.id as string;
+  const movie = await getMovieDetails(id);
+  const crew = await getCredits(id);
+
+  return { props: { tickets: data, movie, crew } };
+});
+*/
+
 export default SpringPage

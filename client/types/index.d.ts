@@ -30,3 +30,5 @@ interface SignUpResponse {
 interface SignOutRequestBody {}
 
 interface SignOutResponse {}
+
+interface MovieDetail {}

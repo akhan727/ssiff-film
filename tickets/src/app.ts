@@ -2,10 +2,10 @@ import express from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
 import cookieSession from 'cookie-session';
-import { createTicketRouter } from './routes/new';
-import { showTicketRouter } from './routes/show';
-import { indexTicketRouter } from './routes/index';
-import { updateTicketRouter } from './routes/update';
+import { createTicketRouter } from './routes/create-ticket.route';
+import { showTicketRouter } from './routes/get-ticket.route.ts';
+import { indexTicketRouter } from './routes/get-tickets.route';
+import { updateTicketRouter } from './routes/update-ticket.route';
 
 import { errorHandler, NotFoundError, currentUser } from '@ssiff-film/common';
 
