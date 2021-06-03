@@ -172,10 +172,10 @@ export const SpringPage: NextPage<Props> = ({ currentUser }) => {
 				  </div>
         </div>
         <div className="movie__list">
-          {movies.map((result: any) => (
+          {movies.map((movie: any) => (
             <MovieCard 
-              result={result}
-              key={result.id}
+              movie={movie}
+              key={movie.id}
             />
           ))}
         </div>
