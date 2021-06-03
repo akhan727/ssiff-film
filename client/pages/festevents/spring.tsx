@@ -1,14 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react'
 import { NextPage } from 'next'
 import { Layout } from '../../components/Layout'
 import { withAuthServerSideProps } from '../../hocs/withAuthServerSideProps'
-import { MovieList } from '../../components/MovieList'
+import { MovieCard } from '../../components/MovieCard'
 import Image from 'next/image'
+//import { getMovieDetails } from '../../lib/tmdb.api';
 
-interface Props extends CurrentUserResponse {}
+interface Props extends CurrentUserResponse {
+  result: Movie;
+  details: Movie;
+  okay: any[];
+  results: any;
+}
 
 export const SpringPage: NextPage<Props> = ({ currentUser }) => {
-	const [movies, setMovies] = useState([
+	const movies = [
     {
       "id": "293670",
       "title": "The Wailing",
@@ -135,7 +141,15 @@ export const SpringPage: NextPage<Props> = ({ currentUser }) => {
       "price": "$10",
       "image": "https://www.themoviedb.org/t/p/original/ca0E776V4Z86Smvvd0842p43hjL.jpg"
     }
-  ]);
+  ];
+  //let okay = [];
+  //console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@ movies ', movies)
+  //const results = Promise.all(movies.map(id => getMovieDetails(movies.id)).then(results => {})
+  //const results: any = Promise.all(movies.map(movie => getMovieDetails(movie.id)))
+  //const results = Promise.all(movies.map(movie => getMovieDetails(movie.id)));
+  //results.then(function(results: any) {console.log(results); return results;})
+  //results.then(results => {console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@ results ', results)})
+  //console.log('################################## results ', results)
 	return (
 		<>
 		  <Layout currentUser={currentUser} title='SSIFF21 Spring Festival'>
@@ -157,10 +171,15 @@ export const SpringPage: NextPage<Props> = ({ currentUser }) => {
             </p>
 				  </div>
         </div>
-		  	<MovieList 
-					movies={movies}
-					setMovies={setMovies}
-				/>
+        <div className="movie__list">
+          {movies.map((result: any) => (
+            <MovieCard 
+              result={result}
+              key={result.id}
+            />
+          ))}
+        </div>
+
       </Layout>
 		</>
 	)
@@ -169,22 +188,22 @@ export const SpringPage: NextPage<Props> = ({ currentUser }) => {
 export const getServerSideProps = withAuthServerSideProps()
 
 // TODO: 
+
 /*
 export const getServerSideProps = withAuthServerSideProps<{
   tickets: GetTicketsResponse;
 }>(async context => {
   const { data } = await axios.get<GetTicketsResponse>(
-    'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/tickets/${ticketId}',
+    'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/tickets',
     {
       headers: context.req.headers
     }
   );
   
-  const id = params?.id as string;
   const movie = await getMovieDetails(id);
   const crew = await getCredits(id);
 
-  return { props: { tickets: data, movie, crew } };
+  return { props: { tickets: data } };
 });
 */
 

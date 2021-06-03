@@ -15,6 +15,13 @@ spec:
       containers:
         - name: client
           image: akhan727/client
+          env:
+            - name: TMDB_API_URL
+              value: 'https://api.themoviedb.org/3'
+            - name: TMDB_API_KEY
+              value: 'c96dff457a17950de5a259a1c1d6a148'
+            - name: TMDB_IMAGE_BASE
+              value: 'http://image.tmdb.org/t/p'
 ---
 apiVersion: v1
 kind: Service
