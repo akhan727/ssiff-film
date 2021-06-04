@@ -20,16 +20,52 @@ interface TicketModel extends Model<TicketDocument> {
 // Schema (JSON object) to define structure of the document
 const ticketSchema = new Schema<TicketDocument, TicketModel>(
   {
-    title: {
+    movieId: {
       type: String,
+      required: true,
+    },
+    movieTitle: {
+      type: String,
+      default: undefined,
+    },
+    country: {
+      type: String,
+      default: undefined,
+    },
+    year: {
+      type: Number,
+      default: undefined,
+    },
+    director: {
+      type: String,
+      default: undefined,
+    },
+    runtime: {
+      type: Number,
+      default: undefined,
+    },
+    synopsis: {
+      type: String,
+      default: undefined,
+    },
+    backdrop: {
+      type: String,
+      default: undefined,
+    },
+    season: {
+      type: String,
+      required: true,
+    },
+    venue: {
+      type: String,
+      required: true,
+    },
+    datetime: {
+      type: Date,
       required: true,
     },
     price: {
       type: Number,
-      required: true,
-    },
-    userId: {
-      type: String,
       required: true,
     },
     orderId: {

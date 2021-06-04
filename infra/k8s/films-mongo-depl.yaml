@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: films-mongo-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: films-mongo
+  template:
+    metadata:
+      labels:
+        app: films-mongo
+    spec:
+      containers:
+        - name: films-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: films-mongo-srv
+spec:
+  selector:
+    app: films-mongo
+  ports:
+    - name: db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
