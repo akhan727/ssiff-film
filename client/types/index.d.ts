@@ -31,36 +31,34 @@ interface SignOutRequestBody {}
 
 interface SignOutResponse {}
 
-interface Movie {
-  backdrop_path: string | null;
-  poster_path: string | null;
-  id: number;
-  original_language: string;
-  original_title: string;
-  overview: string;
-  production_countries: Countries[];
-  release_date: string;
-  runtime: number;
+interface CreateFilmRequestBody {
+  filmId: string;
   title: string;
+  country: string;
+  releaseYear: string;
+  director: string;
+  screenwriter: string;
+  runtime: number;
+  synopsis: string;
+  poster: string;
+  backdrop: string;
 }
 
-interface Crew {
-  credit_id: string;
-  department: string;
-  genre: number | null;
-  id: number;
-  job: string;
-  name: string;
-  profile_path: string | null;
+interface Film {
+  filmId: string;
+  title: string;
+  country: string;
+  releaseYear: string;
+  director: string;
+  screenwriter: string;
+  runtime: number;
+  synopsis: string;
+  poster: string;
+  backdrop: string;
+  userId: string;
+  id: string;
 }
 
-interface Cast {
-  cast_id: number;
-  character: string;
-  credit_id: string;
-  gender: number | null;
-  id: number;
-  name: string;
-  order: number;
-  profile_path: string | null;
-}
+type CreateFilmResponse = Film;
+
+type GetFilmsResponse = Film[];
