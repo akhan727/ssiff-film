@@ -5,7 +5,6 @@ import cookieSession from 'cookie-session';
 import { createFilmRouter } from './routes/create-film.route';
 import { showFilmRouter } from './routes/get-film.route';
 import { indexFilmRouter } from './routes/get-films.route';
-import { updateFilmRouter } from './routes/update-film.route';
 
 import { errorHandler, NotFoundError, currentUser } from '@ssiff-film/common';
 
@@ -25,7 +24,6 @@ app.use(currentUser); // placed after cookieSession so req.session property can 
 app.use(createFilmRouter);
 app.use(showFilmRouter);
 app.use(indexFilmRouter);
-app.use(updateFilmRouter);
 
 app.all('*', async (req: Request) => {
   throw new NotFoundError();

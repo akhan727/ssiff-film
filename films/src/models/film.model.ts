@@ -23,38 +23,47 @@ const filmSchema = new Schema<FilmDocument, FilmModel>(
     },
     title: {
       type: String,
+      required: true,
       default: undefined,
     },
     country: {
       type: String,
+      required: true,
       default: undefined,
     },
     releaseYear: {
       type: String,
+      required: true,
       default: undefined,
     },
     director: {
       type: String,
+      required: true,
       default: undefined,
     },
     screenwriter: {
       type: String,
-      required: undefined,
+      required: true,
+      default: undefined,
     },
     runtime: {
       type: Number,
+      required: true,
       default: undefined,
     },
     synopsis: {
       type: String,
+      required: true,
       default: undefined,
     },
     poster: {
       type: String,
       required: true,
+      default: undefined,
     },
     backdrop: {
       type: String,
+      required: true,
       default: undefined,
     },
   },
