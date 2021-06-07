@@ -15,7 +15,7 @@ export function withAuthServerSideProps<Q>(
         headers: context.req.headers
       }
     );
-    console.log('withAuth - response: ', response);
+    console.log('withAuthServerSideProps > response: ', response);
     
     // Extracts 'currentUser' info from 'response' and assigns it to 'props' object 
     // Response properties: data, status, statusText, headers, config, and request
@@ -23,17 +23,16 @@ export function withAuthServerSideProps<Q>(
       data: { currentUser }
     } = response;
     const props = { currentUser };
-    console.log('withAuth - props: ', props);
+    console.log('withAuthServerSideProps > props: ', props);
 
     // Returns prop object if 'getServerSidePropsFunc' is undefined
-    console.log('withAuth - getServerSidePropsFunc: ', getServerSidePropsFunc);
+    console.log('withAuthServerSideProps > getServerSidePropsFunc: ', getServerSidePropsFunc);
     if (!getServerSidePropsFunc) {
       return { props };
     }
 
-    // 
     const result = (await getServerSidePropsFunc(context)) as { props: Q };
-    console.log('withAuth - results: ', result);
+    console.log('withAuthServerSideProps > results: ', result);
     if (result && result.props) {
       return { props: { ...props, ...result.props } };
     }

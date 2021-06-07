@@ -6,29 +6,28 @@ import Image from 'next/image'
 interface Props extends CurrentUserResponse {}
 
 export const Navigation: React.FC<Props> = ({ currentUser }) => {
-  
-  if (!currentUser) {
-    console.log('%%%%%NAVIGATION%%%%% !currentUser');
-  } else {
-    console.log('%%%%%NAVIGATION%%%%% currentUser', currentUser);
-  }
 
+  // dropdown-menu hook for 'FESTIVALS X EVENTS" 
   const [show1, setShow1] = useState(false);
   const showDropdown1 = () => {setShow1(!show1);}
   const hideDropdown1 = () => {setShow1(false);}
 
+  // dropdown-menu hook for 'SUPPORT'
   const [show2, setShow2] = useState(false);
   const showDropdown2 = () => {setShow2(!show2);}
   const hideDropdown2 = () => {setShow2(false);}
 
+  // dropdown-menu hook for 'ABOUT'
   const [show3, setShow3] = useState(false);
   const showDropdown3 = () => {setShow3(!show3);}
   const hideDropdown3 = () => {setShow3(false);}
 
+  // dropdown-menu hook for USER PROFILE
   const [show4, setShow4] = useState(false);
   const showDropdown4 = () => {setShow4(!show4);}
   const hideDropdown4 = () => {setShow4(false);}
 
+  // menu icons
   const profileIcon = (<Image src="/user.svg" className="menu-icon" alt="profile-icon" width="22" height="22"/>)
 
   const cartIcon = (<Image src="/cart.svg" className="menu-icon" alt="cart-icon" width="22" height="22"/>)
