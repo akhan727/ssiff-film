@@ -17,13 +17,8 @@ router.post(
       .isEmpty()
       .withMessage('Release year is required!'),
     body('director').not().isEmpty().withMessage('Director is required!'),
-    body('screenwriter')
-      .not()
-      .isEmpty()
-      .withMessage('Screenwriter is required!'),
     body('runtime').not().isEmpty().withMessage('Runtime is required!'),
     body('synopsis').not().isEmpty().withMessage('Synopsis is required!'),
-    body('poster').not().isEmpty().withMessage('Poster url is required!'),
     body('backdrop').not().isEmpty().withMessage('Backdrop url is required!'),
   ],
   validateRequest,
@@ -34,11 +29,10 @@ router.post(
       country,
       releaseYear,
       director,
-      screenwriter,
       runtime,
       synopsis,
-      poster,
       backdrop,
+      schedules,
     } = req.body;
 
     const film = Film.build({
@@ -47,11 +41,10 @@ router.post(
       country,
       releaseYear,
       director,
-      screenwriter,
       runtime,
       synopsis,
-      poster,
       backdrop,
+      schedules,
       userId: req.currentUser!.id,
     });
     await film.save();

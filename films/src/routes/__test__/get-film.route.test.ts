@@ -27,11 +27,10 @@ describe('Specific film retrieval: GET /api/films/:id', () => {
       country: 'country',
       releaseYear: '2000',
       director: 'director',
-      screenwriter: 'screenwriter',
       runtime: 100,
       synopsis: 'synopsis',
-      poster: 'url',
       backdrop: 'url',
+      //schedules: [],
     };
 
     // Create new film as authorized user
@@ -41,11 +40,10 @@ describe('Specific film retrieval: GET /api/films/:id', () => {
       newFilm.country,
       newFilm.releaseYear,
       newFilm.director,
-      newFilm.screenwriter,
       newFilm.runtime,
       newFilm.synopsis,
-      newFilm.poster,
       newFilm.backdrop
+      //newFilm.schedules
     ).expect(201);
 
     const { body } = await getFilm(response.body.id);
@@ -54,10 +52,9 @@ describe('Specific film retrieval: GET /api/films/:id', () => {
     expect(body.country).toEqual(newFilm.country);
     expect(body.releaseYear).toEqual(newFilm.releaseYear);
     expect(body.director).toEqual(newFilm.director);
-    expect(body.screenwriter).toEqual(newFilm.screenwriter);
     expect(body.runtime).toEqual(newFilm.runtime);
     expect(body.synopsis).toEqual(newFilm.synopsis);
-    expect(body.poster).toEqual(newFilm.poster);
     expect(body.backdrop).toEqual(newFilm.backdrop);
+    //expect(body.schedules).toEqual(newFilm.schedules);
   });
 });

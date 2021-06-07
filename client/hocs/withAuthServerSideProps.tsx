@@ -15,7 +15,6 @@ export function withAuthServerSideProps<Q>(
         headers: context.req.headers
       }
     );
-    console.log('withAuthServerSideProps > response: ', response);
     
     // Extracts 'currentUser' info from 'response' and assigns it to 'props' object 
     // Response properties: data, status, statusText, headers, config, and request

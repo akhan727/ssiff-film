@@ -21,11 +21,10 @@ describe('Films retrieval: Get /api/films', () => {
         'country',
         '2000',
         'director',
-        'screenwriter',
         100,
         'synopsis',
-        'url',
         'url'
+        //[]
       ).expect(201),
       createFilm(
         'filmId',
@@ -33,11 +32,10 @@ describe('Films retrieval: Get /api/films', () => {
         'country',
         '2000',
         'director',
-        'screenwriter',
         100,
         'synopsis',
-        'url',
         'url'
+        //[]
       ).expect(201),
       createFilm(
         'filmId',
@@ -45,11 +43,10 @@ describe('Films retrieval: Get /api/films', () => {
         'country',
         '2000',
         'director',
-        'screenwriter',
         100,
         'synopsis',
-        'url',
         'url'
+        //[]
       ).expect(201),
     ]);
 

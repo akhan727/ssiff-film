@@ -1,5 +1,6 @@
 import request from 'supertest';
 import { app } from '../../app';
+import { Schedules } from '../../dtos/films.dto';
 import { Film } from '../../models/film.model';
 
 export const createFilm = (
@@ -8,11 +9,10 @@ export const createFilm = (
   country?: string,
   releaseYear?: string,
   director?: string,
-  screenwriter?: string,
   runtime?: number,
   synopsis?: string,
-  poster?: string,
   backdrop?: string,
+  //schedules?: Array<Schedules>,
   email?: string,
   auth: boolean = true
 ) =>
@@ -28,10 +28,8 @@ export const createFilm = (
       country,
       releaseYear,
       director,
-      screenwriter,
       runtime,
       synopsis,
-      poster,
       backdrop,
     });
 
@@ -43,10 +41,8 @@ describe('Film creation: POST /api/films', () => {
       'country',
       '2000',
       'director',
-      'screenwriter',
       100,
       'synopsis',
-      'url',
       'url'
     );
     expect(response.status).not.toEqual(404);
@@ -59,11 +55,10 @@ describe('Film creation: POST /api/films', () => {
       'country',
       '2000',
       'director',
-      'screenwriter',
       100,
       'synopsis',
       'url',
-      'url',
+      //undefined,
       undefined,
       false
     ).expect(401);
@@ -76,10 +71,8 @@ describe('Film creation: POST /api/films', () => {
       'country',
       '2000',
       'director',
-      'screenwriter',
       100,
       'synopsis',
-      'url',
       'url'
     );
     expect(response.status).not.toEqual(401);
@@ -92,11 +85,10 @@ describe('Film creation: POST /api/films', () => {
       'country',
       '2000',
       'director',
-      'screenwriter',
       100,
       'synopsis',
-      'url',
       'url'
+      //[]
     ).expect(400);
 
     await createFilm(
@@ -105,11 +97,10 @@ describe('Film creation: POST /api/films', () => {
       'country',
       '2000',
       'director',
-      'screenwriter',
       100,
       'synopsis',
-      'url',
       'url'
+      //[]
     ).expect(400);
   });
 
@@ -120,11 +111,10 @@ describe('Film creation: POST /api/films', () => {
       'country',
       '2000',
       'director',
-      'screenwriter',
       undefined,
       'synopsis',
-      'url',
       'url'
+      //[]
     ).expect(400);
   });
 
@@ -135,11 +125,10 @@ describe('Film creation: POST /api/films', () => {
       country: 'country',
       releaseYear: '2000',
       director: 'director',
-      screenwriter: 'screenwriter',
       runtime: 100,
       synopsis: 'synopsis',
-      poster: 'url',
       backdrop: 'url',
+      //schedules: [],
     };
     let films = await Film.find({});
     expect(films.length).toEqual(0);
@@ -150,11 +139,10 @@ describe('Film creation: POST /api/films', () => {
       newFilm.country,
       newFilm.releaseYear,
       newFilm.director,
-      newFilm.screenwriter,
       newFilm.runtime,
       newFilm.synopsis,
-      newFilm.poster,
       newFilm.backdrop
+      //newFilm.schedules
     ).expect(201);
 
     films = await Film.find({});
@@ -164,10 +152,9 @@ describe('Film creation: POST /api/films', () => {
     expect(films[0].country).toEqual(newFilm.country);
     expect(films[0].releaseYear).toEqual(newFilm.releaseYear);
     expect(films[0].director).toEqual(newFilm.director);
-    expect(films[0].screenwriter).toEqual(newFilm.screenwriter);
     expect(films[0].runtime).toEqual(newFilm.runtime);
     expect(films[0].synopsis).toEqual(newFilm.synopsis);
-    expect(films[0].poster).toEqual(newFilm.poster);
     expect(films[0].backdrop).toEqual(newFilm.backdrop);
+    //expect(films[0].schedules).toEqual(newFilm.schedules);
   });
 });

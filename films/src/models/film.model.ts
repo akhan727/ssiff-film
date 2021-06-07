@@ -41,11 +41,6 @@ const filmSchema = new Schema<FilmDocument, FilmModel>(
       required: true,
       default: undefined,
     },
-    screenwriter: {
-      type: String,
-      required: true,
-      default: undefined,
-    },
     runtime: {
       type: Number,
       required: true,
@@ -56,16 +51,25 @@ const filmSchema = new Schema<FilmDocument, FilmModel>(
       required: true,
       default: undefined,
     },
-    poster: {
-      type: String,
-      required: true,
-      default: undefined,
-    },
     backdrop: {
       type: String,
       required: true,
       default: undefined,
     },
+    schedules: [
+      {
+        scheduleId: String,
+        venueId: String,
+        venueName: String,
+        venueAddress: String,
+        datetime: String,
+        roomName: Number,
+        roomCapacity: Number,
+        seatsEmpty: Number,
+        seatsOccupied: Number,
+        price: Number,
+      },
+    ],
   },
   {
     optimisticConcurrency: true,

@@ -1,4 +1,5 @@
 import type { FC } from 'react';
+import { Schedules } from '../MovieCard/schedules'
 
 interface Props {
   film: any;
@@ -22,12 +23,12 @@ export const MovieCard: FC<Props> = ({ film }: Props) => {
 					<div className="movie__listing__info__synopsis">
 						<p>{film.synopsis}</p>
 					</div>
-					<div>
-						<p>venue<br/>datetime</p>
-					</div>
-					<div className="movie__listing__info__price">
-						<p>$0</p>
-					</div>
+					{film.schedules.map((schedule: any) => (
+            <Schedules 
+              schedule={schedule}
+              key={schedule.id}
+            />
+          ))}
 					<button className="button__ticket">ADD TO CART</button>
 				</div>
 			
