@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: films-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: films
+  template:
+    metadata:
+      labels:
+        app: films
+    spec:
+      containers:
+        - name: films
+          image: akhan727/films
+          env:
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            - name: MONGO_URI
+              value: 'mongodb://films-mongo-srv:27017/films'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: films-srv
+spec:
+  selector:
+    app: films
+  ports:
+    - name: films
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

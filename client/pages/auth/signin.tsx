@@ -9,7 +9,6 @@ import useRequest from '../../hooks/useRequest';
 interface Props extends CurrentUserResponse {}
 
 export const SignIn: NextPage<Props> = ({ currentUser }) => {
-  console.log('^^^^^SIGN IN^^^^^ current user: ', currentUser)
   // useState HOOK
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');

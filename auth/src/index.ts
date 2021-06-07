@@ -11,6 +11,12 @@ const start = async () => {
   if (!process.env.MONGO_URI) {
     throw new Error('MONGO_URI environment variable must be defined');
   }
+  // TODO:
+  /*
+  if (!process.env.TMDB_KEY) {
+    throw new Error('TMDB_KEY environment variable must be defined');
+  }
+  */
 
   try {
     await mongoose.connect(process.env.MONGO_URI, {

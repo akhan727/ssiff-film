@@ -26,3 +26,11 @@ build:
             dest: .
           - src: 'src/**/*.tsx'
             dest: .
+    - image: akhan727/films
+      context: films
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
