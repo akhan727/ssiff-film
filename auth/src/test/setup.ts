@@ -12,7 +12,7 @@ declare global {
   }
 }
 
-jest.setTimeout(30000);
+jest.setTimeout(90000);
 
 let mongo: any;
 
