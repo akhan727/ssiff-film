@@ -10,6 +10,7 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
+    "testRunner": "jasmine2",
     "testTimeout": 90000,
     "setupFilesAfterEnv": [
       "<rootDir>/src/test/setup.ts"
