@@ -2,7 +2,6 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 import request from 'supertest';
 import { app } from '../app';
-jest.setTimeout(30000);
 
 // signin function returns a promise that resolves with a cookie (array of strings)
 declare global {
@@ -13,7 +12,10 @@ declare global {
   }
 }
 
+jest.setTimeout(30000);
+
 let mongo: any;
+
 beforeAll(async () => {
   // set env variable
   process.env.JWT_KEY = 'test-key';
@@ -33,8 +35,7 @@ beforeEach(async () => {
   // Resets data inbetween tests
   jest.clearAllMocks();
   const collections = await mongoose.connection.db.collections();
-  for (const key in collections) {
-    const collection = collections[key];
+  for (let collection of collections) {
     await collection.deleteMany({});
   }
 });
