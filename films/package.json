@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npm run seed-db && ts-node-dev src/index.ts",
     "test": "jest --watchAll --no-cache",
-    "seed-db": "ts-node ./src/seeding/index.ts"
+    "seed-db": "ts-node ./src/seeding/index.ts",
+    "test:ci": "jest"
   },
   "jest": {
     "preset": "ts-jest",
