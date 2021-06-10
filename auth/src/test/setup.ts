@@ -2,7 +2,7 @@ import { MongoMemoryServer } from 'mongodb-memory-server';
 import mongoose from 'mongoose';
 import request from 'supertest';
 import { app } from '../app';
-jasmine.DEFAULT_TIMEOUT_INTERVAL = 600000;
+jest.setTimeout(30000);
 
 // signin function returns a promise that resolves with a cookie (array of strings)
 declare global {
