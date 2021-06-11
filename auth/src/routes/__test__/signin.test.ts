@@ -50,6 +50,7 @@ describe('/api/user/signin', () => {
     expect(body.errors).toBeDefined();
     expect(body.errors).toHaveLength(1);
     expect(body.errors[0].message).toBeDefined();
+    expect(body.errors[0].message).toMatch(/invalid credentials/i);
   });
 
   it('fails when an incorrect password is supplied', async () => {
@@ -67,6 +68,7 @@ describe('/api/user/signin', () => {
     expect(body.errors).toBeDefined();
     expect(body.errors).toHaveLength(1);
     expect(body.errors[0].message).toBeDefined();
+    expect(body.errors[0].message).toMatch(/invalid credentials/i);
   });
 
   it('responds with a cookie when given valid credentials', async () => {
