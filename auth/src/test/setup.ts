@@ -12,8 +12,6 @@ declare global {
   }
 }
 
-jest.setTimeout(90000);
-
 let mongo: any;
 
 beforeAll(async () => {
@@ -35,9 +33,7 @@ beforeEach(async () => {
   // Resets data inbetween tests
   jest.clearAllMocks();
   const collections = await mongoose.connection.db.collections();
-  for (let collection of collections) {
-    await collection.deleteMany({});
-  }
+  collections.forEach((collection) => collection.deleteMany({}));
 });
 
 afterAll(async () => {
