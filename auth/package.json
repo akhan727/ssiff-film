@@ -10,14 +10,15 @@
   "jest": {
     "preset": "ts-jest",
     "testEnvironment": "node",
-    "testTimeout": 90000,
+    "testTimeout": 900000,
     "setupFilesAfterEnv": [
       "<rootDir>/src/test/setup.ts"
     ]
   },
   "config": {
     "mongodbMemoryServer": {
-      "version": "v4.4-latest"
+      "version": "v4.4-latest",
+      "debug": "1"
     }
   },
   "keywords": [],
