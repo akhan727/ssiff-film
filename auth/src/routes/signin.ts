@@ -40,12 +40,17 @@ router.post(
 
     // Generate JWT
     const userJwt = jwt.sign(
-      { email: existingUser.email, id: existingUser._id },
-      process.env.JWT_KEY!
+      {
+        id: existingUser.id,
+        email: existingUser.email,
+      },
+      process.env.JWT_KEY! // ! is used to tell typescript nothing is wrong
     );
 
     // Store it on the session object
-    req.session = { jwt: userJwt };
+    req.session = {
+      jwt: userJwt,
+    };
 
     res.status(200).send(existingUser);
   }
