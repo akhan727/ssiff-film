@@ -15,8 +15,9 @@ app.set('trust proxy', true); // Tells Express to trust Ingress-Nginx proxy
 app.use(json());
 app.use(
   cookieSession({
-    signed: false,
-    secure: process.env.NODE_ENV !== 'test',
+    signed: false, // Disable the encription
+    //secure: process.env.NODE_ENV !== 'test', // Only send cookies to https connections
+    secure: false,
   })
 );
 

@@ -10,7 +10,8 @@ export function withAuthServerSideProps<Q>(
     // Extracts 'request header' info and assigns it to 'response'
     // ingress controller is used to access the server from within the cluster
     const response = await axios.get<CurrentUserResponse>(
-      'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser',
+      //'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/users/currentuser',
+      'http://www.ssiff-film.org/api/users/currentuser',
       {
         headers: context.req.headers
       }
