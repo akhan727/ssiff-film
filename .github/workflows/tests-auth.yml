@@ -1,11 +1,13 @@
 name: tests-auth
 
-on: pull_request
+on:
+  pull_request: # If a pull_request event occurs
+    paths: # And on the following paths, something changed, then trigger
+      - 'auth/**'
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - run: cd auth && npm install && npm run test:ci
+  build: # Run a virutal machine
+    runs-on: ubuntu-latest # Running ubuntu at the latest version
+    steps: # To do in the virtual machine
+      - uses: actions/checkout@v2 # Take all the code out of the project
+      - run: cd auth && npm install && npm run test:ci # Command to run all the tests only in the auth service
