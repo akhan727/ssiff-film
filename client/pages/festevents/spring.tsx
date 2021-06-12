@@ -51,7 +51,8 @@ export const getServerSideProps = withAuthServerSideProps<{
   films: GetFilmsResponse;
 }>(async context => {
   const { data } = await axios.get<GetFilmsResponse>(
-    'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/films',
+    //'http://ingress-nginx-controller.ingress-nginx.svc.cluster.local/api/films',
+    'http://www.ssiff-film.org/api/films',
     {
       headers: context.req.headers
     }
