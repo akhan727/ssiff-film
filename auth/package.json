@@ -18,8 +18,7 @@
   },
   "config": {
     "mongodbMemoryServer": {
-      "version": "latest",
-      "debug": "1"
+      "version": "latest"
     }
   },
   "keywords": [],
