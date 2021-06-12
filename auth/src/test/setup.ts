@@ -13,6 +13,7 @@ declare global {
 }
 
 let mongo: any;
+
 beforeAll(async () => {
   // set env variable
   process.env.JWT_KEY = 'test-key';
@@ -31,7 +32,9 @@ beforeAll(async () => {
 beforeEach(async () => {
   // Resets data inbetween tests
   const collections = await mongoose.connection.db.collections();
-  collections.forEach((collection) => collection.deleteMany({}));
+  for (let collection of collections) {
+    await collection.deleteMany({});
+  }
 });
 
 afterAll(async () => {

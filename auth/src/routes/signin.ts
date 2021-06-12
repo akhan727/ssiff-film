@@ -26,7 +26,7 @@ router.post(
     // Find out if user input email exists, throw error if it doesn't
     const existingUser = await User.findOne({ email });
     if (!existingUser) {
-      throw new BadRequestError('Invalid email or password!');
+      throw new BadRequestError('Invalid credentials');
     }
 
     // Find out if user input password is correct, throw error if its not
@@ -35,21 +35,21 @@ router.post(
       password
     );
     if (!passwordMatch) {
-      throw new BadRequestError('Invalid email or password!');
+      throw new BadRequestError('Invalid credentials');
     }
 
     // Generate JWT
-    const userJWT = jwt.sign(
+    const userJwt = jwt.sign(
       {
         id: existingUser.id,
         email: existingUser.email,
       },
-      process.env.JWT_KEY!
+      process.env.JWT_KEY! // ! is used to tell typescript nothing is wrong
     );
 
     // Store it on the session object
     req.session = {
-      jwt: userJWT,
+      jwt: userJwt,
     };
 
     res.status(200).send(existingUser);
