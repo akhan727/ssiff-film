@@ -4,13 +4,13 @@
   &__form {
     font-family: $font-text;
     color: $color-gray-dark;
-    display: block;
+    display: flex;
     border: 5px solid $color-primary;
     margin-top: 4.75rem;
     margin-left: auto;
     margin-right: auto;
     padding: 2rem;
-    width: 400px;
+    max-width: 400px;
     @include respond(tablet-landscape) {
       // width < 1200?
       margin-top: 3.875rem;
