@@ -1,4 +1,6 @@
-# Super Secret International Film Festival
+# Secret Society International Film Festival
+
+www.ssiff-film.org
 
 ## Local deployment
 
