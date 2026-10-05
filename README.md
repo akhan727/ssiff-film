@@ -1,39 +1,34 @@
-# Secret Society International Film Festival
+# Super Secret International Film Festival (ssiff-film)
 
-## Production deployment
+A microservice-based e-commerce platform for a fictional film festival. I designed
+and built it independently in 2021, after graduating, to teach myself microservices,
+Kubernetes, and event-driven architecture.
 
-www.ssiff-film.org
+> **Status (2026):** Archived. Kept as a record of my 2021 work. Not actively
+> maintained; dependencies are out of date.
 
-## Local deployment
+## Architecture
 
-In order to deploy the application and the microservices your system should have installed the following technologies:
+- **Communication:** REST between the client and services; asynchronous events
+  between services through **NATS Streaming**
+- **Data:** **MongoDB**, one database per service
+- **Frontend:** **Next.js** with server-side rendering; **Sass** for styling
+- **Testing:** **Jest**
+- **Containers and orchestration:** each service containerized with **Docker** and
+  deployed to **Kubernetes**, with **ingress-nginx** for routing; **Skaffold** for
+  local development
+- **Hosting:** **DigitalOcean** **Google Cloud**
 
-- [Docker](https://www.docker.com/)
-- [Kubernetes](https://kubernetes.io/)
-- [Skaffold](https://skaffold.dev/)
+## What I'd change today
 
-1. Run the command below to create jwt secret (replace "jwt_secret" with a secret of your choice):
+- **NATS Streaming** has been deprecated in favor of **NATS JetStream**; I'd migrate
+  to JetStream.
+- Define the cluster and cloud resources with **Terraform** instead of setting
+  them up by hand.
+- Add a **GitHub Actions** pipeline for tests and image builds.
+- Move container images to a currently supported registry.
 
-```bash
-$ kubectl create secret generic jwt-secret --from-literal=JWT_KEY=jwt_secret
-```
+## History
 
-2. Run the command below to install ingress-nginx:
-
-```bash
-$ apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.45.0/deploy/static/provider/cloud/deploy.yaml
-```
-
-3. Add a temporary line "127.0.0.1 ssiff-film.dev" to /etc/hosts file:
-
-```bash
-$ code /etc/hosts
-```
-
-4. Run Skaffold to create Kubernetes Objects (in order to stop Skaffold, press ctrl + c):
-
-```bash
-$ skaffold dev
-```
-
-5. Navigate to https://ssiff-film.dev using a Chrome browser, click on the page background and type: thisisunsafe
+- `ssiff` (private): first attempt, started February 2021
+- `ssiff-film` (this repo): second attempt, started April 2021
